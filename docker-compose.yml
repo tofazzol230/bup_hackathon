@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  gridwise-api:
+    build: .
+    container_name: gridwise-api
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+    restart: unless-stopped
